@@ -9,4 +9,24 @@ public class CardDeck
     /// The list of cards in the deck
     /// </summary>
     private List<Card> _cardList;
+
+    public CardDeck()
+    {
+        
+    }
+
+    private void CreateCards()
+    {
+        
+    }
+
+    public void ShuffleCards()
+    {
+        
+    }
+
+    public void PrintCards()
+    {
+        
+    }
 }
