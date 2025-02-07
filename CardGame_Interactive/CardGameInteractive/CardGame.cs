@@ -1,0 +1,85 @@
+namespace CardGameInteractive;
+
+/// <summary>
+/// Defines the card game that implements the game logic and holds the card deck
+/// </summary>
+public class CardGame
+{
+    /// <summary>
+    /// Represents the deck of cards the game is using
+    /// </summary>
+    private CardDeck _cardDeck;
+    
+    /// <summary>
+    /// The score of the game
+    /// </summary>
+    private Score _score;
+    
+    /// <summary>
+    /// The last card played by the user
+    /// </summary>
+    private Card _playerCard;
+    
+    /// <summary>
+    /// The last card played by the house
+    /// </summary>
+    private Card _houseCard;
+    
+    /// <summary>
+    /// The constructor of the crd game class
+    /// </summary>
+    public CardGame()
+    {
+        _cardDeck = new CardDeck();
+        _score = new Score();
+        _houseCard = null;
+        _playerCard = null;
+    }
+    
+    /// <summary>
+    /// Plays the game
+    /// </summary>
+    public void Play()
+    {
+        //TODO: Implement Play()
+    }
+    
+    /// <summary>
+    /// Plays a round of the game
+    /// </summary>
+    /// <returns>
+    ///     +1: if the user won the round
+    ///     0: there was a tie
+    ///     -1: the house won the round
+    /// </returns>
+    private sbyte PlayRound()
+    {   
+        //TODO: Implement PlayRound()
+        return -127;
+    }
+
+    private void DealCards()
+    {
+        //TODO: Impement DealCards
+    }
+
+    private void SwitchCards()
+    {
+        
+    }
+
+    private byte DetermineCardRank()
+    {
+        return 0;
+    }
+
+    private void ShowRoundResult()
+    {
+        
+    }
+
+    private void ShowGameOver()
+    {
+        
+    }
+}
