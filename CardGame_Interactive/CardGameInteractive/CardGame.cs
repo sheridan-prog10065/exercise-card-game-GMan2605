@@ -133,12 +133,6 @@ public class CardGame
     /// <returns></returns>
     private byte DetermineCardRank(Card card)
     {
-        //Check if the card is an ace
-        //if (card.Value == 1)
-        //    return 14;
-        //else
-        //    return card.Value;
-
         return card.Value == 1 ? (byte)14 : card.Value;
     }
 
