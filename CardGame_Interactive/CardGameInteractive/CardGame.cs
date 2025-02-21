@@ -5,6 +5,8 @@ namespace CardGameInteractive;
 /// </summary>
 public class CardGame
 {
+    #region Field Declarations
+
     /// <summary>
     /// Represents the deck of cards the game is using
     /// </summary>
@@ -24,7 +26,10 @@ public class CardGame
     /// The last card played by the house
     /// </summary>
     private Card _houseCard;
-    
+
+    #endregion
+
+    #region Constructors
     /// <summary>
     /// The constructor of the crd game class
     /// </summary>
@@ -35,7 +40,61 @@ public class CardGame
         _houseCard = null;
         _playerCard = null;
     }
-    
+
+    #endregion
+
+    #region Properties
+
+    public Score Score
+    {
+        get
+        {
+            return _score;
+        }
+        set
+        {
+            _score = value;
+        }
+    }
+    public Card PlayerCard
+    {
+        get
+        {
+            return _playerCard;
+        }
+    }
+    public Card HouseCard
+    {
+        get
+        {
+            return _houseCard;
+        }
+    }
+    public bool IsOver
+    {
+        get
+        {
+            return _cardDeck.CardCount < 2;
+        }
+    }
+    public bool PlayerWins
+    {
+        get
+        {
+            return this.IsOver && (_score.PlayerScore > _score.HouseScore);
+        }
+    }
+    public bool HouseWins
+    {
+        get
+        {
+            return this.IsOver && (_score.HouseScore > _score.PlayerScore)
+        }
+    }
+
+    #endregion
+
+    #region Methods
     /// <summary>
     /// Plays the game
     /// </summary>
@@ -82,4 +141,6 @@ public class CardGame
     {
         
     }
+
+    #endregion
 }
