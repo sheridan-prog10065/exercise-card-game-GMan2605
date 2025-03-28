@@ -17,6 +17,10 @@ public class Card
     /// </summary>
     private CardSuit _suit;
 
+    public const int MAX_CARD_VALUE = 13;
+
+    public const int MAX_SUIT_COUNT = 4;
+
     public Card(byte value, CardSuit suit)
     {
         _value = value;
