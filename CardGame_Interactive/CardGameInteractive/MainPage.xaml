@@ -7,7 +7,7 @@
     <!-- Apply some internal "CSS" preset styles -->
     <ContentPage.Resources>
         <Style TargetType="Button">
-            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontSize" Value="Large"/>
             <Setter Property="BackgroundColor" Value="DeepSkyBlue"/>
             <Setter Property="BorderWidth" Value="3"/>
             <Setter Property="BorderColor" Value="Black"/>
@@ -42,7 +42,7 @@
         <Border Grid.Column="0" Grid.Row="0" Margin="15">
             <Label x:Name="_txtPlayerScore" Style="{StaticResource _txtScore}"/>
         </Border>
-        <Label Grid.Column="1" Grid.Row="0" Text="Card Game" FontSize="Header" FontAttributes="Bold"/>
+        <Label Grid.Column="1" Grid.Row="0" Text="Card Game" FontSize="65" FontAttributes="Bold" FontFamily="Jacquard"/>
         <Border Grid.Column="2" Grid.Row="0" Margin="15">
             <Label x:Name="_txtHouseScore" Style="{StaticResource _txtScore}"/>
         </Border>
