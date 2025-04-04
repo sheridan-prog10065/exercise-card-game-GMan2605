@@ -19,6 +19,10 @@
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
             <Setter Property="VerticalTextAlignment" Value="Center"/>
         </Style>
+        <Style TargetType="Border">
+            <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="StrokeThickness" Value="3"/>
+        </Style>
     </ContentPage.Resources>
 
     <!-- Content Section -> Everything is contained in a "main" Grid -->
@@ -35,13 +39,11 @@
         <RoundRectangle Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" 
                         Fill="LightSteelBlue" CornerRadius="20"/>
 
-        <Border Stroke="Black" StrokeThickness="3"
-                Grid.Column="0" Grid.Row="0" Margin="15">
+        <Border Grid.Column="0" Grid.Row="0" Margin="15">
             <Label x:Name="_txtPlayerScore" Style="{StaticResource _txtScore}"/>
         </Border>
         <Label Grid.Column="1" Grid.Row="0" Text="Card Game" FontSize="Header" FontAttributes="Bold"/>
-        <Border Stroke="Black" StrokeThickness="3"
-                Grid.Column="2" Grid.Row="0" Margin="15">
+        <Border Grid.Column="2" Grid.Row="0" Margin="15">
             <Label x:Name="_txtHouseScore" Style="{StaticResource _txtScore}"/>
         </Border>
         
@@ -58,17 +60,21 @@
         
         <!-- Third Row: Card & Winner Display -->
 
-        <Image Grid.Column="0" Grid.Row="2" 
+        <Image x:Name="_imgPlayerCard"
+                Grid.Column="0" Grid.Row="2" 
                Source="playing_card_back.jpg"/>
 
         <Border Grid.Column="1" Grid.Row="2"
                 Stroke="Black" StrokeThickness="3"
-                WidthRequest="300" HeightRequest="125"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Padding="50, 15"
                 BackgroundColor="#e3e3e3">
-            <Label Text="Player Wins" FontSize="Large"/>
+            <Label Text="Player Wins!" FontSize="Large"/>
         </Border>
 
-        <Image Grid.Column="2" Grid.Row="2" 
+        <Image x:Name="_imgHouseCard"
+               Grid.Column="2" Grid.Row="2" 
                Source="playing_card_back.jpg"/>
 
         <!-- Decorative Labels at the bottom of the page -->
