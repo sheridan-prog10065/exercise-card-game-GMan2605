@@ -21,9 +21,16 @@ public class CardDeck
 
     #endregion
 
-    public CardDeck()
+    public CardDeck(int cardCount)
     {
-        
+        _cardList = new List<Card>(); // Initialize the list of cards
+        for (int iCard = 0; iCard < cardCount; iCard++) // Add as many cards as specified in the integer parameter
+        {
+            byte newCardValue = (byte)s_randomizer.Next(Card.MAX_CARD_VALUE);
+            CardSuit newCardSuit = (CardSuit) (s_randomizer.Next(Card.MAX_SUIT_COUNT - 1) + 1);
+
+            _cardList.Add(new Card(newCardValue, newCardSuit)); // Add a new Card instance with the randomized suit and value
+        }
     }
 
     /// <summary>

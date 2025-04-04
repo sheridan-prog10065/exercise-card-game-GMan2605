@@ -1,3 +1,5 @@
+using AndroidX.Activity;
+
 namespace CardGameInteractive;
 
 /// <summary>
@@ -111,20 +113,51 @@ public class CardGame
     ///     0: there was a tie
     ///     -1: the house won the round
     /// </returns>
-    private sbyte PlayRound()
-    {   
-        //TODO: Implement PlayRound()
-        return -127;
+    public sbyte PlayRound()
+    {
+        //determine the card ranks for the player and house cards
+        byte cardRank = DetermineCardRank(_playerCard);
+        byte houseRank = DetermineCardRank(_houseCard);
+
+        //check which card has the higer rank to determine the winner
+        if (cardRank > houseRank)
+        {
+            //the player won the round
+            return 1;
+        }
+        else if (houseRank > cardRank)
+        {
+            //the house won the round
+            return -1;
+        }
+        else
+        {
+            //there was a tie
+            return 0;
+        }
+    }
+
+    public void SwitchCards(int cardCount)
+    {
+        // Create a deck fo cards (cardCount is passd as unidirectional input)
+        CardDeck deck = new CardDeck(cardCount);
+
+        //ask the deck for two cards
+        Card cardOne;
+        Card cardTwo;
+
+        //obtain three values from a method (unidirectional output)
+        if (deck.GetPairOfCards(out cardOne, out cardTwo))
+        {
+            //pass AND get information from the Exchange method
+            //(bidirectional: input AND output)
+
+        }
     }
 
     private void DealCards()
     {
         //TODO: Impement DealCards
-    }
-
-    private void SwitchCards()
-    {
-        
     }
 
     /// <summary>
