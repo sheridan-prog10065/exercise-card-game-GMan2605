@@ -1,5 +1,3 @@
-using AndroidX.Activity;
-
 namespace CardGameInteractive;
 
 /// <summary>
@@ -37,7 +35,7 @@ public class CardGame
     /// </summary>
     public CardGame()
     {
-        _cardDeck = new CardDeck();
+        //_cardDeck = new CardDeck();
         _score = new Score();
         _houseCard = null;
         _playerCard = null;
@@ -90,7 +88,7 @@ public class CardGame
     {
         get
         {
-            return this.IsOver && (_score.HouseScore > _score.PlayerScore)
+            return this.IsOver && (_score.HouseScore > _score.PlayerScore);
         }
     }
 

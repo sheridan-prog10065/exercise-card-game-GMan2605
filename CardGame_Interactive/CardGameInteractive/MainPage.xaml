@@ -3,8 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CardGameInteractive.MainPage"
              Shell.NavBarIsVisible="False">
-			 
-	<Label Text="Interactive Card Game Exercise Startup Template"
-	       VerticalOptions="Center"
-	       HorizontalOptions="Center"/> 
+    
+    <!-- Apply some internal "CSS" preset styles -->
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="BackgroundColor" Value="DeepSkyBlue"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="Black"/>
+        </Style>
+        <Style TargetType="Label" x:Key="_txtScore">
+            <Setter Property="BackgroundColor" Value="#e3e3e3"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- Content Section -> Everything is contained in a "main" Grid -->
+    <Grid ColumnDefinitions="*, 2*, *" ColumnSpacing="25" 
+          RowDefinitions="100, auto, *, auto" RowSpacing="25"
+          Margin="20">
+
+        <!-- 
+        Create the title banner & player score display at the top 
+        
+        Round rectangle credit (Perplexity AI's help):
+        https://www.perplexity.ai/search/451e73ff-029f-454b-b726-df07b5cb429d
+        -->
+        <RoundRectangle Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" 
+                        Fill="LightSteelBlue" CornerRadius="20"/>
+
+        <Border Stroke="Black" StrokeThickness="3"
+                Grid.Column="0" Grid.Row="0" Margin="15">
+            <Label x:Name="_txtPlayerScore" Style="{StaticResource _txtScore}"/>
+        </Border>
+        <Label Grid.Column="1" Grid.Row="0" Text="Card Game" FontSize="Header" FontAttributes="Bold"/>
+        <Border Stroke="Black" StrokeThickness="3"
+                Grid.Column="2" Grid.Row="0" Margin="15">
+            <Label x:Name="_txtHouseScore" Style="{StaticResource _txtScore}"/>
+        </Border>
+        
+        <!-- Second Row: Buttons for player to interact with the game -->
+        <Button x:Name="_btnDealCards" 
+                Grid.Column="0" Grid.Row="1"
+                Text="Deal"/>
+        <Button x:Name="_btnSwitchCards" 
+                Grid.Column="1" Grid.Row="1"
+                Text="Switch"/>
+        <Button x:Name="_btnPlayCards" 
+                Grid.Column="2" Grid.Row="1"
+                Text="Play"/>
+        
+        <!-- Third Row: Card & Winner Display -->
+
+        <Image Grid.Column="0" Grid.Row="2" 
+               Source="playing_card_back.jpg"/>
+
+        <Border Grid.Column="1" Grid.Row="2"
+                Stroke="Black" StrokeThickness="3"
+                WidthRequest="300" HeightRequest="125"
+                BackgroundColor="#e3e3e3">
+            <Label Text="Player Wins" FontSize="Large"/>
+        </Border>
+
+        <Image Grid.Column="2" Grid.Row="2" 
+               Source="playing_card_back.jpg"/>
+
+        <!-- Decorative Labels at the bottom of the page -->
+        <Label Grid.Column="0" Grid.Row="3" Text="Player" FontSize="Large"/>
+        <Label Grid.Column="2" Grid.Row="3" Text="House" FontSize="Large"/>
+
+    </Grid>
 </ContentPage>
