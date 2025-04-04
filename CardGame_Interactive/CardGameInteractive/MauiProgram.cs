@@ -14,6 +14,8 @@ public static class MauiProgram
                 fonts.AddFont("Jacquard24-Regular.ttf", "Jacquard"); // Add a custom font!
             });
 
+        
+
         return builder.Build();
     }
 }

@@ -153,7 +153,7 @@ public class CardGame
         }
     }
 
-    private void DealCards()
+    public void DealCards()
     {
         //TODO: Impement DealCards
     }

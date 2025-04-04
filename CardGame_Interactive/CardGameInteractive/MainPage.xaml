@@ -27,7 +27,7 @@
 
     <!-- Content Section -> Everything is contained in a "main" Grid -->
     <Grid ColumnDefinitions="*, 2*, *" ColumnSpacing="25" 
-          RowDefinitions="100, auto, *, auto" RowSpacing="25"
+          RowDefinitions="125, auto, *, auto" RowSpacing="25"
           Margin="20">
 
         <!-- 
@@ -50,13 +50,19 @@
         <!-- Second Row: Buttons for player to interact with the game -->
         <Button x:Name="_btnDealCards" 
                 Grid.Column="0" Grid.Row="1"
-                Text="Deal"/>
+                Text="Deal"
+                Clicked="OnDealCards"
+                Pressed="OnBasicPress" Released="OnBasicRelease"/>
         <Button x:Name="_btnSwitchCards" 
                 Grid.Column="1" Grid.Row="1"
-                Text="Switch"/>
+                Text="Switch"
+                Clicked="OnSwitchCards"
+                Pressed="OnBasicPress" Released="OnBasicRelease"/>
         <Button x:Name="_btnPlayCards" 
                 Grid.Column="2" Grid.Row="1"
-                Text="Play"/>
+                Text="Play"
+                Clicked="OnPlayCards"
+                Pressed="OnBasicPress" Released="OnBasicRelease"/>
         
         <!-- Third Row: Card & Winner Display -->
 
@@ -70,7 +76,8 @@
                 VerticalOptions="Center"
                 Padding="50, 15"
                 BackgroundColor="#e3e3e3">
-            <Label Text="Player Wins!" FontSize="Large"/>
+            <Label x:Name="_txtGameBoard"
+                Text="Player Wins!" FontSize="Large"/>
         </Border>
 
         <Image x:Name="_imgHouseCard"
