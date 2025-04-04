@@ -101,16 +101,36 @@ public class CardDeck
         
     }
 
+    /// <summary>
+    /// Extracts two random cards from the deck
+    /// </summary>
+    /// <param name="cardOne">first card output</param>
+    /// <param name="cardTwo">second card output</param>
+    /// <returns>True if the extraction was possible, false if there are no cards left</returns>
     public bool GetPairOfCards(out Card cardOne, out Card cardTwo)
     {
-        try
+        // Check that we have enough cards to extract a pair
+        if (_cardList.Count >= 2)
         {
-            cardOne = _cardList[s_randomizer.Next(_cardList.Count)];
-            cardTwo = _cardList[s_randomizer.Next(_cardList.Count)];
+            // extract the first card
+            // generate the a random position
+            int randPos = CardDeck.Randomizer.Next(_cardList.Count);
+
+            // assign cardOne to the card at that random position
+            cardOne = _cardList[randPos];
+
+            // extract the second card
+            // generate a random number 
+            randPos = CardDeck.Randomizer.Next(_cardList.Count);
+
+            // assign cardTwo to the card at that random position
+            cardTwo = _cardList[randPos];
+
             return true;
         }
-        catch (ArgumentOutOfRangeException)
+        else
         {
+            // Else there are not enough cards, the game must be over
             cardOne = null;
             cardTwo = null;
             return false;
