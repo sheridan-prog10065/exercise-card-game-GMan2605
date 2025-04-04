@@ -21,7 +21,7 @@ public partial class MainPage : ContentPage
     private void OnSwitchCards(object sender, EventArgs e)
     {
         //ask game object to switch cards between player and house
-        _cardGame.SwitchCards();
+        //_cardGame.SwitchCards();
     }
 
     private void OnPlayCards(object sender, EventArgs e)

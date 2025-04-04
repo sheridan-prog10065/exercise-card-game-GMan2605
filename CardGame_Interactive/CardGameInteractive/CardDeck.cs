@@ -12,7 +12,11 @@ public class CardDeck
     /// <summary>
     /// Static field for the randomizer instance used by all CardDecks
     /// </summary>
-    private static Random s_randomizer = new Random();
+    private static Random s_randomizer;
+
+    private const int MAX_SUIT_COUNT = 4;
+
+    private const int MAX_CARD_VALUE = 13;
 
     /// <summary>
     /// The list of cards in the deck
@@ -21,27 +25,26 @@ public class CardDeck
 
     #endregion
 
-    public CardDeck(int cardCount)
+    public CardDeck()
     {
         _cardList = new List<Card>(); // Initialize the list of cards
-        for (int iCard = 0; iCard < cardCount; iCard++) // Add as many cards as specified in the integer parameter
-        {
-            byte newCardValue = (byte)s_randomizer.Next(Card.MAX_CARD_VALUE);
-            CardSuit newCardSuit = (CardSuit) (s_randomizer.Next(Card.MAX_SUIT_COUNT - 1) + 1);
-
-            _cardList.Add(new Card(newCardValue, newCardSuit)); // Add a new Card instance with the randomized suit and value
-        }
+        CreateCards();
     }
 
     /// <summary>
-    /// Read-only property for the static s_randomizer
+    /// Static constructor to initialize the static fields (eg. the randomizer)
+    /// </summary>
+    static CardDeck()
+    {
+        s_randomizer = new Random();
+    }
+
+    /// <summary>
+    /// Read-only property for the static s_randomizer field
     /// </summary>
     public static Random Randomizer
     {
-        get
-        {
-            return s_randomizer;
-        }
+        get { return s_randomizer; }
     }
 
     /// <summary>
@@ -57,12 +60,40 @@ public class CardDeck
 
     private void CreateCards()
     {
-        
+        //iterate for each suit in the card deck
+        for (int iSuit = 1; iSuit <= MAX_SUIT_COUNT; iSuit++)
+        {
+            CardSuit suit = (CardSuit)iSuit;
+
+            //iterate for each card value
+            for (byte cardValue = 1; cardValue <= MAX_CARD_VALUE; cardValue++)
+            {
+                //create the card object with the given card suit and value
+                Card card = new Card(cardValue, suit);
+
+                //add the card suit to the deck
+                _cardList.Add(card);
+            }
+        }
+
+
     }
 
     public void ShuffleCards()
     {
-        
+        //iterate through each card in the deck
+        for (int iCard = 0; iCard < _cardList.Count; iCard++)
+        {
+            //choose a random position in the deck
+            int randPos = s_randomizer.Next(iCard, _cardList.Count);
+
+            //replace the current card with the card at the random position
+            Card crtCard = _cardList[iCard];
+            Card randCard = _cardList[randPos];
+            _cardList[randPos] = crtCard; // Place the random card at the current pos
+            _cardList[iCard] = randCard; // Place the current at the random position
+
+        }
     }
 
     public void PrintCards()

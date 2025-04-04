@@ -35,7 +35,8 @@ public class CardGame
     /// </summary>
     public CardGame()
     {
-        //_cardDeck = new CardDeck();
+        _cardDeck = new CardDeck();
+        _cardDeck.ShuffleCards();
         _score = new Score();
         _houseCard = null;
         _playerCard = null;
@@ -137,20 +138,20 @@ public class CardGame
 
     public void SwitchCards(int cardCount)
     {
-        // Create a deck fo cards (cardCount is passd as unidirectional input)
-        CardDeck deck = new CardDeck(cardCount);
+        //// Create a deck fo cards (cardCount is passd as unidirectional input)
+        ////CardDeck deck = new CardDeck(cardCount);
 
-        //ask the deck for two cards
-        Card cardOne;
-        Card cardTwo;
+        ////ask the deck for two cards
+        //Card cardOne;
+        //Card cardTwo;
 
-        //obtain three values from a method (unidirectional output)
-        if (deck.GetPairOfCards(out cardOne, out cardTwo))
-        {
-            //pass AND get information from the Exchange method
-            //(bidirectional: input AND output)
+        ////obtain three values from a method (unidirectional output)
+        //if (deck.GetPairOfCards(out cardOne, out cardTwo))
+        //{
+        //    //pass AND get information from the Exchange method
+        //    //(bidirectional: input AND output)
 
-        }
+        //}
     }
 
     public void DealCards()
