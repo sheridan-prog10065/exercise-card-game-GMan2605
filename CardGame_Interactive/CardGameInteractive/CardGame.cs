@@ -98,13 +98,6 @@ public class CardGame
     #endregion
 
     #region Methods
-    /// <summary>
-    /// Plays the game
-    /// </summary>
-    public void Play()
-    {
-        //TODO: Implement Play()
-    }
     
     /// <summary>
     /// Plays a round of the game
@@ -124,11 +117,13 @@ public class CardGame
         if (cardRank > houseRank)
         {
             //the player won the round
+            _score.PlayerScore += cardRank;
             return 1;
         }
         else if (houseRank > cardRank)
         {
             //the house won the round
+            _score.HouseScore += cardRank;
             return -1;
         }
         else
@@ -138,30 +133,18 @@ public class CardGame
         }
     }
 
-    public void SwitchCards(int cardCount)
-    {
-        //// Create a deck fo cards (cardCount is passd as unidirectional input)
-        ////CardDeck deck = new CardDeck(cardCount);
-
-        ////ask the deck for two cards
-        //Card cardOne;
-        //Card cardTwo;
-
-        ////obtain three values from a method (unidirectional output)
-        //if (deck.GetPairOfCards(out cardOne, out cardTwo))
-        //{
-        //    //pass AND get information from the Exchange method
-        //    //(bidirectional: input AND output)
-
-        //}
-    }
-
     public void DealCards()
     {
         //extract two cards from the deck and assign them to the player and the house
         bool cardsDealt = _cardDeck.GetPairOfCards(out _playerCard, out _houseCard);
         Debug.Assert(cardsDealt, "Cards could not be dealt. Make sure the game is not over");
 
+    }
+
+    public void SwitchCards()
+    {
+        //ask the card deck to swap the player and the house cards
+        _cardDeck.ExchangeCards(ref _playerCard, ref _houseCard);
     }
 
     /// <summary>

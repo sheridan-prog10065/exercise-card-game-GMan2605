@@ -139,8 +139,13 @@ public class CardDeck
 
     public void ExchangeCards(ref Card cardOne, ref Card cardTwo)
     {
+        // Using a simple 3-line assignment (longer, but more optimal)
         Card tempCard = cardOne;
         cardOne = cardTwo;
-        cardTwo = cardOne;
+        cardTwo = tempCard;
+
+        // Using tuple deconstruction (LHS is a tuple deconstruction, RHS is a tuple)
+        // IMPORTANT TEST QUESTION!!
+        //(cardOne, cardTwo) = (cardTwo, cardOne);
     }
 }
